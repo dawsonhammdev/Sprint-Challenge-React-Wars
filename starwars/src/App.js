@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from "axios";
+import StarCard from "./components/StarCard"
 
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -27,7 +28,19 @@ import axios from "axios";
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        {stars.map((starData, index) => {
+        console.log(starData)
+        return (
+          <StarCard
+            key ={index} 
+            name ={starData.name}
+            height = {starData.height} 
+            mass ={starData.mass}
+          />
+        )
+      })}
       </div>
+        
     );
   }
 
